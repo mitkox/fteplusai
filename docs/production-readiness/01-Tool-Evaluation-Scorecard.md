@@ -12,8 +12,8 @@
 | Vendor C | Local workstation or private cluster | Local only | Dev assist | [Replace]
 
 **Examples of local-capable platforms (use only if they match your stack):**
-- On-prem LLM serving: vLLM, TGI, LocalAI
-- Local developer runtimes: Ollama, LM Studio
+- On-prem LLM serving: vLLM, SGLang, TGI
+- Local endpoints (edge/dev): llama.cpp
 - Enterprise on-prem platforms: vendor-provided private AI stacks (replace with your list)
 
 ## Privacy Gate (Must-Pass)

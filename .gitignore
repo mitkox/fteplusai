@@ -28,6 +28,7 @@ Thumbs.db
 .ruff_cache/
 .mypy_cache/
 .pytest_cache/
+.github/
 
 # Build output
 build/

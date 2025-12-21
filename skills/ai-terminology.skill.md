@@ -19,7 +19,7 @@ This skill ensures consistent, accurate usage of AI/ML terminology throughout th
 
 **Large Language Models (LLMs)**
 - **Definition:** AI models trained on vast text data to understand and generate human language
-- **Examples:** GPT-4, Claude, Gemini, Llama
+- **Examples:** GPT-4/5, Claude, Gemini, Qwen-Next, GLM-4.6, MiniMax-M2
 - **Usage:** Use when discussing text generation, code completion, or conversational AI
 - **Context:** "LLMs like GPT-4 can generate documentation from code comments"
 

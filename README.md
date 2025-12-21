@@ -8,11 +8,14 @@ FTE+AI is an end-to-end program execution framework that guides R&D organization
 
 **What You Get:**
 - ✅ Complete 30-60-90 day execution roadmap
-- ✅ 13 specialized AI agents for each program phase
-- ✅ 17 reusable skills for program execution and vendor transition
+- ✅ 18 specialized AI agents for each program phase
+- ✅ 23 reusable skills for program execution and vendor transition
 - ✅ Ready-to-use templates, checklists, and tracking tools
 - ✅ Risk mitigation and rollback planning
 - ✅ Financial modeling and ROI validation
+- ✅ **NEW:** Local AI deployment with complete data sovereignty
+- ✅ **NEW:** Hardware sizing and self-hosted LLM guidance
+- ✅ **NEW:** Open-source model evaluation and licensing compliance
 
 ## 🚀 Program Phases
 
@@ -252,6 +255,88 @@ FTE+AI is an end-to-end program execution framework that guides R&D organization
 
 ---
 
+### Local AI Infrastructure Agents: Data Sovereignty & Self-Hosted Deployment
+
+#### 14. Local-AI-Infrastructure-Architect Agent
+**Infrastructure specialist** for designing and deploying self-hosted LLM platforms with complete data sovereignty.
+
+**Use for:**
+- Hardware sizing for local AI deployments (GPU, CPU, RAM, storage)
+- Platform selection (prefer vLLM or SGLang for serving; use llama.cpp for endpoints)
+- Containerized deployment (Docker, Kubernetes)
+- Air-gapped and network-isolated deployments
+- High availability and load balancing configuration
+
+**Invocation:** `@Local-AI-Infrastructure-Architect`
+
+**Skills used:** #local-ai-deployment, #hardware-sizing, #production-readiness, #risk-assessment
+
+---
+
+#### 15. Open-Source-Model-Evaluator Agent
+**Model selection specialist** for evaluating and recommending open-source LLMs for enterprise use.
+
+**Use for:**
+- Open-source model comparison and benchmarking
+- License compliance assessment for commercial use
+- Model selection for specific use cases (code, chat, reasoning)
+- Fine-tuning feasibility and ROI analysis
+- Model upgrade and deprecation planning
+
+**Invocation:** `@Open-Source-Model-Evaluator`
+
+**Skills used:** #open-source-licensing, #tool-evaluation, #risk-assessment, #technical-writing
+
+---
+
+#### 16. Data-Sovereignty-Advisor Agent
+**Compliance specialist** for ensuring complete data control and regulatory compliance in AI systems.
+
+**Use for:**
+- GDPR, HIPAA, CCPA compliance for AI systems
+- Data classification and handling policies
+- PII detection and protection strategies
+- Audit trail and access control design
+- Data residency and localization requirements
+
+**Invocation:** `@Data-Sovereignty-Advisor`
+
+**Skills used:** #data-sovereignty, #risk-assessment, #legal-compliance, #document-structure
+
+---
+
+#### 17. Vendor-Relationship-Manager Agent
+**Relationship specialist** for managing vendor negotiations, contracts, and professional transitions.
+
+**Use for:**
+- AI vendor contract negotiation
+- Pricing model analysis and optimization
+- SLA design and enforcement
+- Vendor exit strategies and professional transitions
+- Multi-vendor portfolio management
+
+**Invocation:** `@Vendor-Relationship-Manager`
+
+**Skills used:** #vendor-negotiation, #vendor-transition, #risk-assessment, #financial-modeling
+
+---
+
+#### 18. MLOps-Engineer Agent
+**Operations specialist** for running production local AI infrastructure with enterprise-grade reliability.
+
+**Use for:**
+- Production deployment and operations
+- Monitoring, alerting, and observability setup
+- Incident management and response procedures
+- Capacity planning and scaling strategies
+- Model lifecycle management and updates
+
+**Invocation:** `@MLOps-Engineer`
+
+**Skills used:** #mlops-operations, #local-ai-deployment, #production-readiness, #metrics-analytics
+
+---
+
 ## 🎯 Available Skills
 
 ### Core Program Execution Skills
@@ -383,11 +468,56 @@ FTE+AI is an end-to-end program execution framework that guides R&D organization
 
 ---
 
+### Local AI & Data Sovereignty Skills
+
+#### 18. Local AI Deployment Skill (#local-ai-deployment)
+**Expertise:** Self-hosted LLM platforms and enterprise deployment
+
+**Provides:** Platform comparison (vLLM, SGLang, TGI, llama.cpp), Docker/Kubernetes configs, air-gapped deployment, API gateway setup
+
+---
+
+#### 19. Hardware Sizing Skill (#hardware-sizing)
+**Expertise:** GPU and server specification for AI workloads
+
+**Provides:** GPU selection (RTX 4090 to H100), server configs by team size, VRAM requirements, TCO modeling
+
+---
+
+#### 20. Open Source Licensing Skill (#open-source-licensing)
+**Expertise:** License compliance for AI models and tools
+
+**Provides:** License classification (permissive OSS, copyleft, provider open-weights, RAIL-style, commercial EULA), commercial use assessment, compliance documentation
+
+---
+
+#### 21. Data Sovereignty Skill (#data-sovereignty)
+**Expertise:** Data residency, privacy, and regulatory compliance
+
+**Provides:** Data classification frameworks, GDPR/HIPAA/CCPA checklists, PII handling, audit trail design
+
+---
+
+#### 22. MLOps Operations Skill (#mlops-operations)
+**Expertise:** Production AI system operations and maintenance
+
+**Provides:** Monitoring configuration, alerting rules, operational runbooks, capacity planning, cost optimization
+
+---
+
+#### 23. Vendor Negotiation Skill (#vendor-negotiation)
+**Expertise:** Contract negotiation and vendor relationship management
+
+**Provides:** Negotiation frameworks, pricing analysis, contract terms, SLA design, multi-vendor strategies
+
+---
+
 ## 📚 Documentation Library
 - [docs/Introduction.md](docs/Introduction.md)
 - [docs/Enterprise-Deployment-Guide.md](docs/Enterprise-Deployment-Guide.md)
 - [docs/ROI-Calculator-Template.md](docs/ROI-Calculator-Template.md)
 - [docs/production-readiness/README.md](docs/production-readiness/README.md)
+- [docs/programs/dcs-microshift-vendor-replacement/README.md](docs/programs/dcs-microshift-vendor-replacement/README.md)
 
 ## Quick Start
 
@@ -462,6 +592,39 @@ Regulatory: SOC2 + GDPR
 Output: Risk register + mitigation plan
 ```
 
+### Deploying Local AI for Data Sovereignty
+
+```
+@Local-AI-Infrastructure-Architect Design local AI infrastructure
+
+Team size: 30 developers
+Requirements: Complete data sovereignty, no external API calls
+Constraints: $50K budget, GDPR compliant
+Output: Hardware specs, platform selection, deployment architecture
+```
+
+### Evaluating Open Source Models
+
+```
+@Open-Source-Model-Evaluator Select model for code generation
+
+Use case: Code completion and review
+Requirements: Apache 2.0 or MIT license, <48GB VRAM
+Quality target: 90% of GPT-4 on code tasks
+Output: Model comparison, license analysis, recommendation
+```
+
+### Ensuring Data Sovereignty Compliance
+
+```
+@Data-Sovereignty-Advisor Create compliance framework
+
+Regulations: GDPR + HIPAA
+Data types: Source code, internal documents
+AI deployment: Self-hosted Qwen-Next / MiniMax-M2 / GLM-4.6 (served via vLLM/SGLang; optional llama.cpp endpoints)
+Output: Data classification, compliance checklist, audit procedures
+```
+
 ## Project Structure
 
 ```
@@ -469,8 +632,8 @@ FTE+AI/
 ├── AGENTS.md                                 # Agent & skill reference
 ├── README.md                                 # This file
 ├── LICENSE                                   # MIT License
-├── agents/                                   # 13 specialized program agents
-├── skills/                                   # 17 reusable skills
+├── agents/                                   # 18 specialized program agents
+├── skills/                                   # 23 reusable skills
 └── docs/                                     # Guides, templates, and readiness artifacts
 	├── Introduction.md
 	├── Enterprise-Deployment-Guide.md
@@ -535,6 +698,32 @@ For production readiness in enterprise environments:
 5. @Documaster Compile into executive-ready package
 ```
 
+### Pattern 5: Local AI Deployment (Data Sovereignty)
+
+For organizations requiring complete data sovereignty:
+
+```
+1. @Local-AI-Infrastructure-Architect Size hardware and select platform (vLLM, SGLang, llama.cpp)
+2. @Open-Source-Model-Evaluator Select models with license compliance
+3. @Data-Sovereignty-Advisor Ensure GDPR/HIPAA compliance
+4. @MLOps-Engineer Deploy and configure production infrastructure
+5. @Vendor-Relationship-Manager Negotiate any cloud vendor transitions
+6. @Implementation-Guide Create training materials for the team
+```
+
+### Pattern 6: Cloud to Local AI Migration
+
+For transitioning from cloud APIs to self-hosted models:
+
+```
+1. @ROI-Calculator Compare cloud API vs. local AI TCO
+2. @Open-Source-Model-Evaluator Find open-source alternatives
+3. @Local-AI-Infrastructure-Architect Design local infrastructure
+4. @Data-Sovereignty-Advisor Validate data handling compliance
+5. @Vendor-Transition-Manager Plan cloud vendor wind-down
+6. @MLOps-Engineer Execute deployment and migration
+```
+
 ## Documentation Standards
 
 All agents follow these principles:
@@ -560,6 +749,11 @@ through dedicated agents, skills, and checklists:
 - **Performance optimization**: @Performance-Optimization-Agent with #metrics-analytics, #api-integration
 - **Cost control and ROI**: @ROI-Calculator with #financial-modeling
 - **Implementation guides**: @Implementation-Guide with #code-examples
+- **Local AI infrastructure**: @Local-AI-Infrastructure-Architect with #local-ai-deployment, #hardware-sizing
+- **Model selection and licensing**: @Open-Source-Model-Evaluator with #open-source-licensing, #tool-evaluation
+- **Data sovereignty and compliance**: @Data-Sovereignty-Advisor with #data-sovereignty, #risk-assessment
+- **Vendor negotiations**: @Vendor-Relationship-Manager with #vendor-negotiation, #vendor-transition
+- **MLOps and operations**: @MLOps-Engineer with #mlops-operations, #production-readiness
 
 
 ## Customization
@@ -697,6 +891,13 @@ When adding new documentation:
 - **Risk Mitigation:** All identified risks addressed
 - **Stakeholder Satisfaction:** 85%+ satisfaction score
 
+### Local AI Deployment
+- **Data Sovereignty:** 100% local processing, zero external data transfer
+- **Availability:** 99.5%+ uptime for self-hosted infrastructure
+- **Cost vs. Cloud:** 60-80% lower TCO over 3 years
+- **License Compliance:** 100% of models properly licensed
+- **MTTR:** <30 minutes for critical issues
+
 ## Roadmap
 
 ### Q1 2026
@@ -719,21 +920,48 @@ MIT License. See LICENSE file for details.
 
 ---
 
-**Version:** 3.0.0 (Program Execution Framework)  
-**Last Updated:** December 21, 2025  
+**Version:** 4.0.0 (Local AI & Data Sovereignty Release)
+**Last Updated:** December 21, 2025
 **Maintained by:** FTE+AI Project Team
 
 ---
 
-## Summary of v3.0.0 Updates
+## Summary of v4.0.0 Updates
 
-**MAJOR TRANSFORMATION: From Documentation Toolkit to Program Execution Framework**
+**MAJOR RELEASE: Local AI Infrastructure & Complete Data Sovereignty**
 
-- **New Focus:** Complete 30-60-90 day vendor replacement program execution
-- **13 agents** (up from 12): Added Program-Manager as orchestrator for all phases
-- **17 skills** (up from 14): Added program-planning, milestone-tracking, stakeholder-management
-- **Phase-Based Organization:** Agents now organized by Planning (Days 1-30), Pilot (Days 31-60), and Transition (Days 61-90)
-- **Program Management:** Complete milestone tracking, phase gates, risk management, and stakeholder engagement frameworks
-- **Hands-On Execution:** Templates, checklists, and tracking tools for every program phase
-- **Production-Ready:** Enterprise-grade program planning and execution for R&D organizations replacing vendors with AI
+- **18 agents** (up from 13): Added 5 new agents for local AI deployment
+- **23 skills** (up from 17): Added 6 new skills for self-hosted infrastructure
+- **Local AI Focus:** Complete guidance for vLLM/SGLang serving and llama.cpp endpoints
+- **Data Sovereignty:** GDPR, HIPAA, CCPA compliance frameworks
+- **Hardware Sizing:** GPU selection (RTX 4090 to H100) and server configurations
+- **Open Source Models:** Model evaluation, benchmarking, and license compliance
+- **MLOps Operations:** Production deployment, monitoring, and incident response
+- **Vendor Negotiations:** Contract negotiation and relationship management
+
+### New Agents in v4.0.0
+1. **@Local-AI-Infrastructure-Architect** - Hardware and platform design
+2. **@Open-Source-Model-Evaluator** - Model selection and licensing
+3. **@Data-Sovereignty-Advisor** - Compliance and data protection
+4. **@Vendor-Relationship-Manager** - Contract negotiation
+5. **@MLOps-Engineer** - Production operations
+
+### New Skills in v4.0.0
+1. **#local-ai-deployment** - Self-hosted LLM platforms
+2. **#hardware-sizing** - GPU and server specification
+3. **#open-source-licensing** - Model license compliance
+4. **#data-sovereignty** - Data residency and privacy
+5. **#mlops-operations** - Production AI operations
+6. **#vendor-negotiation** - Contract and relationship management
+
+---
+
+## Previous Release: v3.0.0
+
+**Program Execution Framework**
+
+- Complete 30-60-90 day vendor replacement program execution
+- 13 agents organized by program phase
+- 17 skills for program execution and vendor transition
+- Phase gates, milestone tracking, and stakeholder engagement
 

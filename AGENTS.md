@@ -21,8 +21,8 @@ The FTE+AI Program Framework is a comprehensive 30-60-90 day program execution s
 
 ### Core Architecture Components
 
-1. **Agent Layer** (`agents/`): 13 specialized AI agents orchestrating program phases
-2. **Skill Layer** (`skills/`): 17 reusable expertise modules for program execution  
+1. **Agent Layer** (`agents/`): 18 specialized AI agents orchestrating program phases
+2. **Skill Layer** (`skills/`): 23 reusable expertise modules for program execution  
 3. **Program Framework**: 30-60-90 day structured execution model
 4. **Phase Gates**: Go/No-Go decision points at Days 30, 60, 90
 5. **Tracking System**: Milestone, deliverable, risk, and stakeholder management
@@ -53,6 +53,11 @@ Each agent has configured tool access appropriate for their specialized function
 | Executive Strategy Advisor | File + Research | Market intelligence and strategy |
 | API Integration Specialist | File + Shell + Research | Technical integration guides |
 | Legal Contract Advisor | File + Research | Contract analysis and compliance |
+| Local AI Infrastructure Architect | File + Shell | Hardware sizing and deployment |
+| Open Source Model Evaluator | File + Research | Model selection and licensing |
+| Data Sovereignty Advisor | File + Research | Compliance and data protection |
+| Vendor Relationship Manager | File + Research | Contract negotiation and relations |
+| MLOps Engineer | File + Shell + Grep | Production operations and monitoring |
 
 ### Security Considerations
 - **Principle of Least Privilege**: Agents only have tools needed for their functions
@@ -67,8 +72,8 @@ FTE+AI/
 ├── AGENTS.md                                 # Agent & skill reference (this file)
 ├── README.md                                 # Project overview
 ├── LICENSE                                   # MIT License
-├── agents/                                   # 13 specialized program agents
-├── skills/                                   # 17 reusable expertise modules
+├── agents/                                   # 18 specialized program agents
+├── skills/                                   # 23 reusable expertise modules
 └── docs/                                     # Guides, templates, and readiness artifacts
 	├── Introduction.md
 	├── Enterprise-Deployment-Guide.md
@@ -270,6 +275,83 @@ FTE+AI/
 - Performance optimization for API calls
 
 **Core Skills:** #api-integration, #code-examples, #technical-writing, #document-structure
+
+---
+
+### Local AI Infrastructure Agents: Data Sovereignty & Self-Hosted Deployment
+
+#### 14. Local-AI-Infrastructure-Architect Agent (@Local-AI-Infrastructure-Architect)
+**Infrastructure specialist** for designing and deploying self-hosted LLM platforms.
+
+**Use Cases:**
+- Hardware sizing for local AI deployments (GPU, CPU, RAM, storage)
+- Platform selection (prefer vLLM or SGLang for serving; use llama.cpp for endpoints)
+- Containerized deployment (Docker, Kubernetes)
+- Air-gapped and network-isolated deployments
+- High availability and load balancing configuration
+- Performance optimization and quantization strategies
+
+**Core Skills:** #local-ai-deployment, #hardware-sizing, #production-readiness, #risk-assessment
+
+---
+
+#### 15. Open-Source-Model-Evaluator Agent (@Open-Source-Model-Evaluator)
+**Model selection specialist** for evaluating and recommending open-source LLMs.
+
+**Use Cases:**
+- Open-source model comparison and benchmarking
+- License compliance assessment for commercial use
+- Model selection for specific use cases (code, chat, reasoning)
+- Fine-tuning feasibility and ROI analysis
+- Community health and sustainability assessment
+- Model upgrade and deprecation planning
+
+**Core Skills:** #open-source-licensing, #tool-evaluation, #risk-assessment, #technical-writing
+
+---
+
+#### 16. Data-Sovereignty-Advisor Agent (@Data-Sovereignty-Advisor)
+**Compliance specialist** for ensuring complete data control and regulatory compliance.
+
+**Use Cases:**
+- GDPR, HIPAA, CCPA compliance for AI systems
+- Data classification and handling policies
+- PII detection and protection strategies
+- Audit trail and access control design
+- Data residency and localization requirements
+- Privacy-preserving AI architectures
+
+**Core Skills:** #data-sovereignty, #risk-assessment, #legal-compliance, #document-structure
+
+---
+
+#### 17. Vendor-Relationship-Manager Agent (@Vendor-Relationship-Manager)
+**Relationship specialist** for managing vendor negotiations and transitions.
+
+**Use Cases:**
+- AI vendor contract negotiation
+- Pricing model analysis and optimization
+- SLA design and enforcement
+- Vendor exit strategies and professional transitions
+- Multi-vendor portfolio management
+- Vendor performance monitoring and accountability
+
+**Core Skills:** #vendor-negotiation, #vendor-transition, #risk-assessment, #financial-modeling
+
+---
+
+#### 18. MLOps-Engineer Agent (@MLOps-Engineer)
+**Operations specialist** for running production local AI infrastructure.
+
+**Use Cases:**
+- Production deployment and operations
+- Monitoring, alerting, and observability setup
+- Incident management and response procedures
+- Capacity planning and scaling strategies
+- Model lifecycle management and updates
+- Cost optimization and efficiency tracking
+
+**Core Skills:** #mlops-operations, #local-ai-deployment, #production-readiness, #metrics-analytics
 
 ---
 
@@ -491,6 +573,86 @@ FTE+AI/
 
 ---
 
+### Local AI & Data Sovereignty Skills
+
+#### 18. Local AI Deployment Skill (#local-ai-deployment)
+**Expertise:** Self-hosted LLM platforms and enterprise deployment
+
+**Provides:**
+- Platform comparison (vLLM, SGLang, TGI, llama.cpp)
+- Docker and Kubernetes deployment configurations
+- Air-gapped deployment procedures
+- API gateway and authentication setup
+- Performance optimization and quantization
+- High availability configurations
+
+---
+
+#### 19. Hardware Sizing Skill (#hardware-sizing)
+**Expertise:** GPU and server specification for AI workloads
+
+**Provides:**
+- GPU selection guide (RTX 4090, A6000, A100, H100)
+- Server configuration templates by team size
+- VRAM requirements by model size
+- Capacity planning calculators
+- TCO modeling for hardware investments
+- Scaling strategies and growth projections
+
+---
+
+#### 20. Open Source Licensing Skill (#open-source-licensing)
+**Expertise:** License compliance for AI models and tools
+
+**Provides:**
+- License classification (permissive OSS, copyleft, provider open-weights, RAIL-style, commercial EULA)
+- Commercial use eligibility assessment
+- License obligation management
+- IP risk evaluation for AI models
+- Compliance documentation templates
+- Model-specific licensing guidance
+
+---
+
+#### 21. Data Sovereignty Skill (#data-sovereignty)
+**Expertise:** Data residency, privacy, and regulatory compliance
+
+**Provides:**
+- Data classification frameworks (PUBLIC to PROHIBITED)
+- GDPR, HIPAA, CCPA compliance checklists
+- PII detection and handling strategies
+- Data flow mapping and documentation
+- Audit trail and access control design
+- Privacy-preserving architecture patterns
+
+---
+
+#### 22. MLOps Operations Skill (#mlops-operations)
+**Expertise:** Production AI system operations and maintenance
+
+**Provides:**
+- Monitoring and observability configuration
+- Alerting rules and SLO frameworks
+- Operational runbooks (startup, shutdown, updates)
+- Incident response procedures
+- Capacity planning and scaling triggers
+- Cost tracking and optimization
+
+---
+
+#### 23. Vendor Negotiation Skill (#vendor-negotiation)
+**Expertise:** Contract negotiation and vendor relationship management
+
+**Provides:**
+- Negotiation preparation frameworks
+- Pricing model analysis (per-user, per-token, flat fee)
+- Key contract terms and clauses
+- SLA design and enforcement
+- Multi-vendor portfolio strategies
+- Vendor performance scorecards
+
+---
+
 ## Build and Test Commands
 
 This is a program execution framework without traditional build processes. However, key workflows include:
@@ -639,6 +801,27 @@ Before scaling AI vendor replacement:
 6. @Executive-Strategy-Advisor Create executive summary
 ```
 
+### Local AI Deployment Workflow (Data Sovereignty)
+```
+1. @Local-AI-Infrastructure-Architect Size hardware and select platform
+2. @Open-Source-Model-Evaluator Select and validate models
+3. @Data-Sovereignty-Advisor Ensure compliance (GDPR, HIPAA)
+4. @MLOps-Engineer Deploy and configure production infrastructure
+5. @Vendor-Relationship-Manager Negotiate any remaining vendor contracts
+6. @Implementation-Guide Create user training and documentation
+```
+
+### Vendor Replacement with Local AI
+```
+1. @ROI-Calculator Compare cloud vs. local AI TCO
+2. @Tool-Evaluation-Specialist Evaluate local platforms (vLLM, SGLang, TGI, llama.cpp)
+3. @Open-Source-Model-Evaluator Select appropriate models with license compliance
+4. @Local-AI-Infrastructure-Architect Design infrastructure architecture
+5. @Data-Sovereignty-Advisor Validate data handling and compliance
+6. @MLOps-Engineer Deploy and operate local AI platform
+7. @Vendor-Transition-Manager Execute cloud-to-local transition
+```
+
 ## Success Metrics
 
 ### Documentation Quality
@@ -659,6 +842,13 @@ Before scaling AI vendor replacement:
 - **Risk Mitigation**: All identified risks addressed
 - **Training Coverage**: 100% of affected personnel trained
 - **Vendor Transition**: Zero-downtime cutover success
+
+### Local AI Deployment
+- **Data Sovereignty**: 100% local processing, zero external data transfer
+- **Availability**: 99.5%+ uptime for self-hosted infrastructure
+- **Cost vs. Cloud**: 60-80% lower TCO over 3 years
+- **License Compliance**: 100% of models properly licensed
+- **MTTR**: <30 minutes for critical issues
 
 ## Troubleshooting
 
@@ -683,8 +873,8 @@ Before scaling AI vendor replacement:
 
 ---
 
-**System Version:** 3.0.0 (Program Execution Framework)  
-**Last Updated:** December 21, 2025  
+**System Version:** 4.0.0 (Local AI & Data Sovereignty Release)
+**Last Updated:** December 21, 2025
 **Maintained by:** FTE+AI Project Team
 
 ## 📄 License

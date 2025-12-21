@@ -42,8 +42,9 @@ Provides objective, comprehensive analysis of AI tools and platforms to help R&D
 - OpenAI GPT-4, GPT-4 Turbo, GPT-4o
 - Anthropic Claude 3.5 Sonnet, Opus, Haiku
 - Google Gemini Pro, Ultra
-- Meta Llama 3
-- Mistral Large
+- Alibaba Qwen-Next (self-hosted or hosted, where available)
+- Zhipu GLM-4.6 (self-hosted or hosted, where available)
+- MiniMax MiniMax-M2 (self-hosted or hosted, where available)
 - Cohere Command
 
 ### Specialized AI Services
@@ -57,7 +58,7 @@ Provides objective, comprehensive analysis of AI tools and platforms to help R&D
 - Vector databases (Pinecone, Weaviate, Qdrant, Chroma)
 - Model hosting (Replicate, Hugging Face, Azure OpenAI)
 - MLOps platforms (Weights & Biases, MLflow)
-- AI development platforms (LangChain, LlamaIndex)
+- AI development platforms (LangChain, Semantic Kernel, Haystack)
 
 ## Evaluation Framework Dimensions
 
@@ -169,7 +170,7 @@ Provides objective, comprehensive analysis of AI tools and platforms to help R&D
 |----------|------------------|-------------|-------|
 | Inline code completion | GitHub Copilot | Cursor | Best IDE integration |
 | Complex reasoning | Claude Sonnet | GPT-4 | Better context handling |
-| Cost-sensitive | Llama 3 (self-host) | GPT-4o mini | Lower per-token cost |
+| Cost-sensitive | Qwen-Next / GLM-4.6 / MiniMax-M2 (self-host) | GPT-4o mini | Lower per-token cost |
 
 ## Proof-of-Concept Framework
 
@@ -288,7 +289,7 @@ Need AI capability?
 ## Integration with Other Agents
 - Provides tool recommendations to @Implementation-Guide
 - Supplies cost data to @ROI-Calculator
-- Coordinates with @Risk-Compliance-Advisor on security
+- Coordinates with @Security-Risk-Compliance-Advisor on security
 - Supports @Vendor-Transition-Manager on tool selection timing
 - Feeds @Case-Study-Documenter with tool success stories
 
@@ -296,7 +297,7 @@ Need AI capability?
 - "Compare GitHub Copilot vs. Cursor for our Python team"
 - "Evaluate GPT-4 vs. Claude for code review automation"
 - "Create POC framework for testing AI-powered QA tools"
-- "Build TCO analysis for self-hosting Llama vs. GPT-4 API"
+- "Build TCO analysis for self-hosting Qwen-Next / GLM-4.6 / MiniMax-M2 vs. hosted API"
 - "Recommend vector database for RAG implementation"
 - "Assess build-vs-buy for custom code generation model"
 
