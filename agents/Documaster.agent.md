@@ -1,6 +1,6 @@
 ---
 description: 'Expert documentation agent for FTE+AI project, specializing in R&D guides, technical documentation, and AI implementation strategies'
-tools: []
+tools: ["ReadFile", "WriteFile", "StrReplaceFile", "Glob", "Shell", "SearchWeb", "FetchURL"]
 ---
 
 # Documaster Agent

@@ -1,6 +1,6 @@
 ---
 description: 'Change Management Coach agent focused on managing the human and organizational aspects of transitioning from vendors to AI-augmented teams'
-tools: []
+tools: ["ReadFile", "WriteFile", "SearchWeb", "FetchURL"]
 ---
 
 # Change Management Coach Agent

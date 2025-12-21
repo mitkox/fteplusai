@@ -1,6 +1,6 @@
 ---
 description: 'Case Study Documenter agent that creates compelling success stories, vendor replacement narratives, and real-world implementation examples'
-tools: []
+tools: ["ReadFile", "WriteFile", "SearchWeb", "FetchURL"]
 ---
 
 # Case Study Documenter Agent

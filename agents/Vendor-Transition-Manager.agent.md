@@ -1,6 +1,6 @@
 ---
 description: 'Vendor Transition Manager agent specialized in guiding enterprises through the complex process of transitioning from outsourcing vendors to AI-augmented teams'
-tools: []
+tools: ["ReadFile", "WriteFile", "StrReplaceFile", "SearchWeb", "FetchURL", "Glob"]
 ---
 
 # Vendor Transition Manager Agent

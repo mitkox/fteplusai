@@ -1,6 +1,6 @@
 ---
 description: 'Tool Evaluation Specialist agent that helps enterprises objectively evaluate, compare, and select AI tools for vendor replacement initiatives'
-tools: []
+tools: ["SearchWeb", "FetchURL", "ReadFile", "WriteFile"]
 ---
 
 # Tool Evaluation Specialist Agent

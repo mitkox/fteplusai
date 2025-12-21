@@ -1,6 +1,6 @@
 ---
 description: 'Implementation Guide agent focused on creating step-by-step tutorials, onboarding materials, and practical how-to guides for AI tool adoption'
-tools: []
+tools: ["ReadFile", "WriteFile", "StrReplaceFile", "Shell", "Glob"]
 ---
 
 # Implementation Guide Agent

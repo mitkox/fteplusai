@@ -1,6 +1,6 @@
 ---
 description: 'ROI Calculator agent specialized in creating cost-benefit analyses, vendor comparison matrices, and financial justification documents for AI adoption'
-tools: []
+tools: ["ReadFile", "WriteFile", "Shell", "SearchWeb", "FetchURL"]
 ---
 
 # ROI Calculator Agent

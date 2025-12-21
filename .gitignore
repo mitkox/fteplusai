@@ -1,0 +1,48 @@
+# Dependency directories
+node_modules/
+venv/
+.venv/
+.env
+.env.*
+
+# Logs
+tmp/
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local dev
+.python-version
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Build output
+build/
+dist/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# MacOS metadata
+._*
+
+# Git conflict files
+*.orig
