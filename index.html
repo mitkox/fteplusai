@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FTE+AI - Replace Vendors with AI-Augmented Teams</title>
-    <meta name="description" content="A complete 30-60-90 day program for replacing outsourcing vendors with AI-augmented internal teams. Achieve 60-80% cost reduction and 1.5-2.5x productivity gains.">
+    <title>FTE+AI - Transform Your Team</title>
+    <meta name="description" content="Replace outsourcing vendors with AI-augmented teams in 90 days. 60-80% cost reduction, 1.5-2.5x productivity gains.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,31 +17,26 @@
 
         :root {
             --primary: #6366f1;
-            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
             --secondary: #06b6d4;
             --accent: #f59e0b;
+            --accent-light: #fbbf24;
             --success: #10b981;
-            --bg-primary: #020617;
-            --bg-secondary: #0f172a;
-            --bg-card: rgba(255, 255, 255, 0.02);
-            --bg-card-hover: rgba(255, 255, 255, 0.04);
-            --text-primary: #f8fafc;
-            --text-secondary: #64748b;
-            --border-color: rgba(255, 255, 255, 0.06);
-            --border-hover: rgba(99, 102, 241, 0.2);
-            --shadow: rgba(0, 0, 0, 0.3);
+            --bg-dark: #030712;
+            --bg-card: rgba(17, 24, 39, 0.6);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border: rgba(99, 102, 241, 0.15);
         }
 
         [data-theme="light"] {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --bg-card: rgba(99, 102, 241, 0.03);
-            --bg-card-hover: rgba(99, 102, 241, 0.06);
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --border-color: rgba(99, 102, 241, 0.1);
-            --border-hover: rgba(99, 102, 241, 0.3);
-            --shadow: rgba(0, 0, 0, 0.1);
+            --bg-dark: #f9fafb;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --bg-glass: rgba(99, 102, 241, 0.03);
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border: rgba(99, 102, 241, 0.2);
         }
 
         html {
@@ -49,69 +44,65 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
             color: var(--text-primary);
-            line-height: 1.6;
             overflow-x: hidden;
-            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        .bg-animation {
+        /* Animated Background */
+        .cosmos {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             z-index: -1;
             overflow: hidden;
         }
 
-        .bg-animation::before {
-            content: '';
+        .cosmos-stars {
             position: absolute;
             width: 200%;
             height: 200%;
             top: -50%;
             left: -50%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(99, 102, 241, 0.03) 0%, transparent 40%);
-            animation: bgFloat 20s ease-in-out infinite;
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 60%);
+            animation: cosmosMove 30s linear infinite;
         }
 
-        [data-theme="light"] .bg-animation::before {
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(99, 102, 241, 0.02) 0%, transparent 40%);
+        @keyframes cosmosMove {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        @keyframes bgFloat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(2%, 2%) rotate(1deg); }
-            50% { transform: translate(-1%, 1%) rotate(-1deg); }
-            75% { transform: translate(1%, -1%) rotate(0.5deg); }
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
         }
 
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 15s infinite ease-in-out;
         }
 
-        [data-theme="light"] .grid-overlay {
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 30%; top: 60%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 50%; top: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 70%; top: 70%; animation-delay: 6s; }
+        .particle:nth-child(5) { left: 90%; top: 40%; animation-delay: 8s; }
+        .particle:nth-child(6) { left: 15%; top: 80%; animation-delay: 10s; }
+        .particle:nth-child(7) { left: 85%; top: 15%; animation-delay: 12s; }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-100px) scale(1.5); opacity: 0.6; }
         }
 
         /* Navigation */
@@ -122,68 +113,59 @@
             right: 0;
             z-index: 1000;
             padding: 1rem 2rem;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
         }
 
         [data-theme="light"] nav {
-            background: rgba(255, 255, 255, 0.8);
-            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            background: rgba(249, 250, 251, 0.8);
         }
 
         nav.scrolled {
             padding: 0.75rem 2rem;
-            background: rgba(15, 23, 42, 0.95);
-        }
-
-        [data-theme="light"] nav.scrolled {
-            background: rgba(255, 255, 255, 0.95);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 2rem;
         }
 
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 3rem;
         }
 
+        /* Creative Logo */
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
             text-decoration: none;
-            white-space: nowrap;
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--text-primary);
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: white;
+            position: relative;
+            width: 48px;
+            height: 48px;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
@@ -191,16 +173,15 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
             position: relative;
-            white-space: nowrap;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -6px;
             left: 0;
             width: 0;
             height: 2px;
@@ -222,12 +203,12 @@
             gap: 1rem;
         }
 
-        .theme-toggle {
-            width: 44px;
-            height: 44px;
+        .theme-btn {
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
+            border: 1px solid var(--border);
+            background: var(--bg-glass);
             color: var(--text-primary);
             cursor: pointer;
             display: flex;
@@ -236,14 +217,14 @@
             transition: all 0.3s ease;
         }
 
-        .theme-toggle:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
+        .theme-btn:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
         }
 
-        .theme-toggle svg {
-            width: 20px;
-            height: 20px;
+        .theme-btn svg {
+            width: 22px;
+            height: 22px;
         }
 
         .sun-icon { display: none; }
@@ -251,21 +232,27 @@
         [data-theme="light"] .moon-icon { display: none; }
 
         .nav-cta {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            padding: 0.85rem 1.75rem;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
-            border: 1px solid transparent;
-            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .nav-cta svg {
+            width: 18px;
+            height: 18px;
         }
 
         /* Hero Section */
@@ -282,23 +269,26 @@
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.25rem;
             border-radius: 50px;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
+            font-weight: 500;
             color: var(--primary);
             margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease;
+            animation: badgeFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         .hero-badge::before {
@@ -307,36 +297,31 @@
             height: 8px;
             background: var(--success);
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            animation: pulseGlow 2s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
-            line-height: 1.15;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease 0.1s both;
-            max-width: 800px;
-        }
-
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 50%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero p {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: var(--text-secondary);
             max-width: 650px;
             margin: 0 auto 2.5rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
+            line-height: 1.7;
         }
 
         .hero-cta {
@@ -344,12 +329,12 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.3s both;
+            margin-bottom: 4rem;
         }
 
         .btn {
             padding: 1rem 2rem;
-            border-radius: 10px;
+            border-radius: 12px;
             font-weight: 600;
             font-size: 1rem;
             text-decoration: none;
@@ -362,43 +347,40 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.4);
         }
 
         .btn-secondary {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
             color: var(--text-primary);
         }
 
         .btn-secondary:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
         }
 
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-top: 4rem;
+            gap: 4rem;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s both;
         }
 
         .stat {
             text-align: center;
-            min-width: 100px;
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -408,34 +390,29 @@
 
         .stat-label {
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             margin-top: 0.25rem;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Section Styles */
         section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
+            padding: 6rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .section-tag {
             display: inline-block;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.25rem;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: var(--primary);
             margin-bottom: 1rem;
@@ -444,97 +421,165 @@
         }
 
         .section-title {
-            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .section-subtitle {
             color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 550px;
+            font-size: 1.1rem;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Program Phases */
-        .phases-grid {
+        /* Cards Grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
 
-        @media (max-width: 900px) {
-            .phases-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
+        .cards-grid-3 {
+            grid-template-columns: repeat(3, 1fr);
         }
 
-        .phase-card {
+        .cards-grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .cards-grid-6 {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        @media (max-width: 1100px) {
+            .cards-grid-4, .cards-grid-6 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 800px) {
+            .cards-grid-3, .cards-grid-4, .cards-grid-6 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .cards-grid-3, .cards-grid-4, .cards-grid-6 { grid-template-columns: 1fr; }
+        }
+
+        /* Glass Card */
+        .glass-card {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
             padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
+        }
+
+        .glass-card:hover .card-glow {
+            opacity: 1;
+        }
+
+        .card-glow {
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 24px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            filter: blur(20px);
+        }
+
+        /* Feature Card */
+        .feature-card {
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
         }
 
-        .phase-card::before {
+        .feature-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
-        .phase-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-hover);
-            box-shadow: 0 20px 40px var(--shadow);
+        .feature-card:hover::before {
+            transform: scaleX(1);
         }
 
-        .phase-card:hover::before {
-            opacity: 1;
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.75rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Phase Card */
+        .phase-card {
+            position: relative;
         }
 
         .phase-number {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 800;
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), transparent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             opacity: 0.15;
             position: absolute;
-            top: 0.75rem;
+            top: 0;
             right: 1rem;
             line-height: 1;
         }
 
         .phase-days {
             display: inline-block;
-            background: rgba(99, 102, 241, 0.1);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50px;
-            padding: 0.3rem 0.75rem;
-            font-size: 0.75rem;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: var(--primary);
+            color: white;
             margin-bottom: 1rem;
         }
 
         .phase-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .phase-card p {
+        .phase-card > p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
             margin-bottom: 1.25rem;
+            font-size: 0.95rem;
         }
 
         .phase-tasks {
@@ -545,9 +590,9 @@
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.875rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
         }
 
         .phase-tasks li:last-child {
@@ -561,218 +606,136 @@
             flex-shrink: 0;
         }
 
-        /* Features Section */
-        .features {
-            background: var(--bg-card);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-
-        @media (max-width: 900px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
-            transform: translateY(-3px);
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .feature-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-
-        /* Agents Section */
-        .agents-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-        }
-
-        @media (max-width: 1100px) {
-            .agents-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 800px) {
-            .agents-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 500px) {
-            .agents-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-        }
-
+        /* Agent Card */
         .agent-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 1.25rem;
-            transition: all 0.3s ease;
-        }
-
-        .agent-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
+            display: flex;
+            flex-direction: column;
         }
 
         .agent-header {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .agent-avatar {
-            width: 42px;
-            height: 42px;
+            width: 52px;
+            height: 52px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 10px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: white;
+            flex-shrink: 0;
+        }
+
+        .agent-info {
+            flex: 1;
+            min-width: 0;
         }
 
         .agent-name {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .agent-role {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
         }
 
-        .agent-card p {
+        .agent-card > p {
             color: var(--text-secondary);
-            font-size: 0.8rem;
-            margin-bottom: 0.75rem;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex: 1;
         }
 
         .agent-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.35rem;
+            gap: 0.4rem;
         }
 
         .agent-tag {
-            background: rgba(99, 102, 241, 0.1);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15));
             border-radius: 50px;
-            padding: 0.2rem 0.6rem;
-            font-size: 0.7rem;
-            color: var(--primary);
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem;
             font-weight: 500;
+            color: var(--primary);
         }
 
         /* Skills Section */
         .skills-wrapper {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .skills-container {
+        .skills-cloud {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
             justify-content: center;
+            align-items: center;
         }
 
         .skill-tag {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
             border-radius: 50px;
-            padding: 0.6rem 1rem;
-            font-size: 0.85rem;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             transition: all 0.3s ease;
             cursor: default;
         }
 
         .skill-tag:hover {
-            background: rgba(99, 102, 241, 0.1);
-            border-color: var(--border-hover);
-            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            color: white;
+            transform: scale(1.05);
         }
 
         /* Code Section */
         .code-section {
-            background: var(--bg-card);
+            background: linear-gradient(180deg, transparent, var(--bg-glass), transparent);
         }
 
-        .code-blocks {
-            max-width: 800px;
+        .code-wrapper {
+            max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
         }
 
         .code-block {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
             overflow: hidden;
+            margin-bottom: 1.5rem;
         }
 
         .code-header {
-            background: var(--bg-card);
-            padding: 0.85rem 1.25rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            border-bottom: 1px solid var(--border-color);
+            gap: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        [data-theme="light"] .code-header {
+            background: rgba(0, 0, 0, 0.05);
         }
 
         .code-dots {
@@ -792,78 +755,86 @@
 
         .code-title {
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin-left: 0.5rem;
+            font-size: 0.9rem;
         }
 
-        .code-content {
-            padding: 1.25rem;
+        .code-body {
+            padding: 1.5rem;
             overflow-x: auto;
         }
 
-        .code-content pre {
+        .code-body pre {
             font-family: 'Fira Code', 'Monaco', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.7;
             margin: 0;
         }
 
-        .code-content .keyword { color: #c792ea; }
-        .code-content .string { color: #c3e88d; }
-        .code-content .comment { color: var(--text-secondary); opacity: 0.7; }
-        .code-content .function { color: #82aaff; }
-        .code-content .variable { color: #f78c6c; }
+        .code-body .keyword { color: #c792ea; }
+        .code-body .string { color: #c3e88d; }
+        .code-body .comment { color: var(--text-secondary); opacity: 0.6; }
+        .code-body .function { color: #82aaff; }
+        .code-body .variable { color: #f78c6c; }
+        .code-body .property { color: #ffcb6b; }
 
         /* CTA Section */
         .cta-section {
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            z-index: -1;
         }
 
         .cta-content {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        .cta-section h2 {
-            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+        .cta-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
         }
 
-        .cta-section p {
+        .cta-content p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
         }
 
         /* Footer */
         footer {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 2rem 1.5rem;
+            background: var(--bg-glass);
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem 2rem;
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
+            gap: 4rem;
+            margin-bottom: 3rem;
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
             }
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
             .footer-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -872,14 +843,15 @@
 
         .footer-brand p {
             color: var(--text-secondary);
-            margin-top: 0.75rem;
-            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .footer-col h4 {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             color: var(--text-primary);
         }
 
@@ -888,49 +860,61 @@
         }
 
         .footer-col ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
         .footer-col ul a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
         .footer-col ul a:hover {
-            color: var(--text-primary);
+            color: var(--primary);
         }
 
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
             flex-wrap: wrap;
             gap: 1rem;
         }
 
         .footer-copyright {
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         .footer-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--text-primary);
+            color: var(--primary);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive */
@@ -952,48 +936,67 @@
                 text-align: center;
             }
         }
-
-        @media (max-width: 480px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-    <div class="grid-overlay"></div>
+    <div class="cosmos">
+        <div class="cosmos-stars"></div>
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
 
     <nav>
         <div class="nav-container">
             <div class="nav-left">
                 <a href="#" class="logo">
-                    <div class="logo-icon">F+</div>
-                    FTE+AI
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#6366f1"/>
+                                    <stop offset="100%" style="stop-color:#06b6d4"/>
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <g filter="url(#glow)">
+                                <!-- F Shape - Left -->
+                                <path d="M8 8 L8 40 L18 40 L18 28 L26 28 L26 20 L18 20 L18 16 C18 14 19 12 22 12 L26 12" 
+                                      stroke="url(#logoGradient)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <!-- Plus Symbol -->
+                                <circle cx="36" cy="24" r="14" stroke="url(#logoGradient)" stroke-width="3" fill="none"/>
+                                <path d="M36 16 L36 32 M26 24 L46 24" stroke="url(#logoGradient)" stroke-width="3" stroke-linecap="round"/>
+                                <!-- AI dots -->
+                                <circle cx="36" cy="10" r="2.5" fill="#6366f1"/>
+                                <circle cx="42" cy="24" r="2.5" fill="#06b6d4"/>
+                                <circle cx="36" cy="38" r="2.5" fill="#f59e0b"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <span>FTE+AI</span>
                 </a>
                 <ul class="nav-links">
                     <li><a href="#overview">Overview</a></li>
-                    <li><a href="#phases">Program Phases</a></li>
+                    <li><a href="#phases">Program</a></li>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#agents">AI Agents</a></li>
+                    <li><a href="#agents">Agents</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#quickstart">Quick Start</a></li>
                 </ul>
             </div>
             <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
                     <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                     </svg>
@@ -1002,7 +1005,7 @@
                     </svg>
                 </button>
                 <a href="https://github.com/mitkox/fteplusai" target="_blank" class="nav-cta">
-                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                     GitHub
@@ -1013,12 +1016,12 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">Version 4.0.0 - Local AI & Data Sovereignty</div>
-            <h1>Replace Outsourcing Vendors with <span class="gradient">AI-Augmented Teams</span></h1>
+            <div class="hero-badge">Version 4.0 - Local AI & Data Sovereignty</div>
+            <h1>Replace Outsourcing Vendors with AI-Augmented Teams</h1>
             <p>A complete 30-60-90 day program execution framework with 18 specialized AI agents and 23 reusable skills. Achieve 60-80% cost reduction and 1.5-2.5x productivity gains.</p>
             <div class="hero-cta">
                 <a href="https://github.com/mitkox/fteplusai" target="_blank" class="btn btn-primary">
-                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                    <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                     View on GitHub
@@ -1052,33 +1055,33 @@
             <h2 class="section-title">What is FTE+AI?</h2>
             <p class="section-subtitle">A hands-on program management framework for replacing outsourcing vendors with AI-augmented internal teams in just 90 days.</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-card reveal">
+        <div class="cards-grid cards-grid-3">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">📋</div>
                 <h4>30-60-90 Day Roadmap</h4>
                 <p>Complete execution plan with phase gates, milestones, and deliverables for each stage of vendor replacement.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">🤖</div>
                 <h4>18 Specialized AI Agents</h4>
                 <p>AI-powered agents for program management, ROI analysis, vendor negotiation, compliance, and local AI deployment.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">🛠️</div>
                 <h4>23 Reusable Skills</h4>
                 <p>Expertise modules for program planning, financial modeling, risk assessment, change management, and more.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">📊</div>
                 <h4>Financial Modeling</h4>
                 <p>ROI calculators, TCO analysis, and cost comparison tools to justify and validate your vendor replacement decision.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">🔒</div>
                 <h4>Data Sovereignty</h4>
                 <p>Complete guidance for self-hosted AI deployment with vLLM, SGLang, and llama.cpp for complete data control.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">⚖️</div>
                 <h4>Risk & Compliance</h4>
                 <p>Security assessments, compliance frameworks (GDPR, HIPAA, SOC2), and vendor security evaluation tools.</p>
@@ -1092,8 +1095,8 @@
             <h2 class="section-title">90-Day Execution Roadmap</h2>
             <p class="section-subtitle">A structured approach to vendor replacement with clear milestones and decision points.</p>
         </div>
-        <div class="phases-grid">
-            <div class="phase-card reveal">
+        <div class="cards-grid cards-grid-3">
+            <div class="glass-card phase-card reveal">
                 <div class="phase-number">01</div>
                 <div class="phase-days">Days 1-30</div>
                 <h3>Planning & Preparation</h3>
@@ -1106,7 +1109,7 @@
                     <li>Initial training and setup</li>
                 </ul>
             </div>
-            <div class="phase-card reveal">
+            <div class="glass-card phase-card reveal">
                 <div class="phase-number">02</div>
                 <div class="phase-days">Days 31-60</div>
                 <h3>Pilot & Validation</h3>
@@ -1119,7 +1122,7 @@
                     <li>Go/No-Go decision for phase 3</li>
                 </ul>
             </div>
-            <div class="phase-card reveal">
+            <div class="glass-card phase-card reveal">
                 <div class="phase-number">03</div>
                 <div class="phase-days">Days 61-90</div>
                 <h3>Transition & Scale</h3>
@@ -1141,33 +1144,33 @@
             <h2 class="section-title">Complete Program Toolkit</h2>
             <p class="section-subtitle">Everything you need for successful vendor replacement and AI augmentation.</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-card reveal">
+        <div class="cards-grid cards-grid-3">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">📑</div>
                 <h4>Ready-to-Use Templates</h4>
                 <p>Program charters, checklists, tracking tools, and documentation templates ready for customization.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">📈</div>
                 <h4>ROI Validation</h4>
                 <p>Financial models, cost calculators, and productivity metrics to track program success.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">🛡️</div>
                 <h4>Risk Mitigation</h4>
                 <p>Rollback planning, parallel runs, and contingency strategies for safe vendor transition.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">💻</div>
                 <h4>Local AI Deployment</h4>
                 <p>Hardware sizing, platform selection, and deployment guides for self-hosted LLMs.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">📝</div>
                 <h4>Legal & Contract Support</h4>
                 <p>Vendor contract review, IP protection strategies, and data processing agreements.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card feature-card reveal">
                 <div class="feature-icon">👥</div>
                 <h4>Change Management</h4>
                 <p>Training programs, adoption tracking, and stakeholder engagement strategies.</p>
@@ -1181,11 +1184,11 @@
             <h2 class="section-title">18 Specialized Agents</h2>
             <p class="section-subtitle">AI-powered agents that guide you through every aspect of vendor replacement.</p>
         </div>
-        <div class="agents-grid">
-            <div class="agent-card reveal">
+        <div class="cards-grid cards-grid-4">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">PM</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Program-Manager</div>
                         <div class="agent-role">Program Orchestrator</div>
                     </div>
@@ -1196,10 +1199,10 @@
                     <span class="agent-tag">#risk-assessment</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">ES</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Executive-Strategy-Advisor</div>
                         <div class="agent-role">Strategic Advisor</div>
                     </div>
@@ -1210,10 +1213,10 @@
                     <span class="agent-tag">#data-visualization</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">DM</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Documaster</div>
                         <div class="agent-role">Documentation Agent</div>
                     </div>
@@ -1224,10 +1227,10 @@
                     <span class="agent-tag">#document-structure</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">RC</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">ROI-Calculator</div>
                         <div class="agent-role">Financial Analysis</div>
                     </div>
@@ -1238,10 +1241,10 @@
                     <span class="agent-tag">#data-visualization</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">TE</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Tool-Evaluation-Specialist</div>
                         <div class="agent-role">Tool Selection</div>
                     </div>
@@ -1252,10 +1255,10 @@
                     <span class="agent-tag">#code-examples</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">SC</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Security-Risk-Compliance</div>
                         <div class="agent-role">Security & Compliance</div>
                     </div>
@@ -1266,10 +1269,10 @@
                     <span class="agent-tag">#legal-compliance</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">LC</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Legal-Contract-Advisor</div>
                         <div class="agent-role">Legal & Contracts</div>
                     </div>
@@ -1280,10 +1283,10 @@
                     <span class="agent-tag">#vendor-transition</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">IG</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Implementation-Guide</div>
                         <div class="agent-role">Tutorial Specialist</div>
                     </div>
@@ -1294,10 +1297,10 @@
                     <span class="agent-tag">#technical-writing</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">PO</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Performance-Optimization</div>
                         <div class="agent-role">Performance Specialist</div>
                     </div>
@@ -1308,10 +1311,10 @@
                     <span class="agent-tag">#api-integration</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">CM</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Change-Management-Coach</div>
                         <div class="agent-role">Adoption Specialist</div>
                     </div>
@@ -1322,10 +1325,10 @@
                     <span class="agent-tag">#stakeholder-management</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">VT</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Vendor-Transition-Manager</div>
                         <div class="agent-role">Transition Specialist</div>
                     </div>
@@ -1336,10 +1339,10 @@
                     <span class="agent-tag">#change-management</span>
                 </div>
             </div>
-            <div class="agent-card reveal">
+            <div class="glass-card agent-card reveal">
                 <div class="agent-header">
                     <div class="agent-avatar">LI</div>
-                    <div>
+                    <div class="agent-info">
                         <div class="agent-name">Local-AI-Infrastructure</div>
                         <div class="agent-role">Infrastructure Architect</div>
                     </div>
@@ -1360,7 +1363,7 @@
             <p class="section-subtitle">Specialized expertise modules that agents use to execute specific tasks.</p>
         </div>
         <div class="skills-wrapper">
-            <div class="skills-container reveal">
+            <div class="skills-cloud reveal">
                 <div class="skill-tag">#program-planning</div>
                 <div class="skill-tag">#milestone-tracking</div>
                 <div class="skill-tag">#stakeholder-management</div>
@@ -1394,7 +1397,7 @@
             <h2 class="section-title">Start Your Program</h2>
             <p class="section-subtitle">Invoke agents to create your vendor replacement program plan.</p>
         </div>
-        <div class="code-blocks">
+        <div class="code-wrapper">
             <div class="code-block reveal">
                 <div class="code-header">
                     <div class="code-dots">
@@ -1404,7 +1407,7 @@
                     </div>
                     <span class="code-title">Creating a 30-60-90 Program Plan</span>
                 </div>
-                <div class="code-content">
+                <div class="code-body">
                     <pre><span class="comment"># Invoke the Program Manager agent to create your comprehensive plan</span>
 <span class="variable">@Program-Manager</span> <span class="function">Create</span> <span class="string">a 30-60-90 day vendor replacement program plan</span>
 
@@ -1422,7 +1425,7 @@
                     </div>
                     <span class="code-title">Financial Analysis Example</span>
                 </div>
-                <div class="code-content">
+                <div class="code-body">
                     <pre><span class="comment"># Calculate ROI and TCO for vendor replacement</span>
 <span class="variable">@ROI-Calculator</span> <span class="function">Create</span> <span class="string">a cost comparison between our offshore vendor and AI-augmented FTEs</span>
 
@@ -1440,7 +1443,7 @@
                     </div>
                     <span class="code-title">Local AI Deployment Example</span>
                 </div>
-                <div class="code-content">
+                <div class="code-body">
                     <pre><span class="comment"># Design local AI infrastructure for complete data sovereignty</span>
 <span class="variable">@Local-AI-Infrastructure-Architect</span> <span class="function">Design</span> <span class="string">local AI infrastructure</span>
 
@@ -1454,11 +1457,12 @@
     </section>
 
     <section class="cta-section">
+        <div class="cta-bg"></div>
         <div class="cta-content reveal">
             <h2>Ready to Replace Your Vendors?</h2>
             <p>Start your 90-day journey to AI-augmented teams and significant cost savings.</p>
             <a href="https://github.com/mitkox/fteplusai" target="_blank" class="btn btn-primary">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
                 Get Started on GitHub
@@ -1471,8 +1475,23 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <div class="logo-icon">F+</div>
-                        FTE+AI
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                                <defs>
+                                    <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#6366f1"/>
+                                        <stop offset="100%" style="stop-color:#06b6d4"/>
+                                    </linearGradient>
+                                </defs>
+                                <g>
+                                    <path d="M8 8 L8 40 L18 40 L18 28 L26 28 L26 20 L18 20 L18 16 C18 14 19 12 22 12 L26 12" 
+                                          stroke="url(#logoGradient2)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="36" cy="24" r="12" stroke="url(#logoGradient2)" stroke-width="2.5" fill="none"/>
+                                    <path d="M36 18 L36 30 M29 24 L43 24" stroke="url(#logoGradient2)" stroke-width="2.5" stroke-linecap="round"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <span>FTE+AI</span>
                     </a>
                     <p>A complete 30-60-90 day program for replacing outsourcing vendors with AI-augmented internal teams.</p>
                 </div>
@@ -1517,8 +1536,6 @@
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
-
-        // Check for saved theme preference or default to dark
         const savedTheme = localStorage.getItem('theme') || 'dark';
         html.setAttribute('data-theme', savedTheme);
 
@@ -1532,72 +1549,46 @@
         // Navigation scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+            nav.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Reveal animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -30px 0px'
-        };
-
+        // Reveal animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Smooth scroll for navigation links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Add stagger effect to grid items
-        document.querySelectorAll('.phases-grid, .features-grid, .agents-grid').forEach(grid => {
-            const items = grid.children;
-            Array.from(items).forEach((item, index) => {
-                item.style.transitionDelay = `${index * 0.08}s`;
-            });
+        // Stagger effect for grid items
+        document.querySelectorAll('.cards-grid > *').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.08}s`;
         });
 
         // Stats counter animation
-        const stats = document.querySelectorAll('.stat-value');
-        stats.forEach(stat => {
+        document.querySelectorAll('.stat-value').forEach(stat => {
             const target = stat.textContent;
-            const isNumber = !isNaN(parseInt(target.replace(/[^0-9]/g, '')));
-            
-            if (isNumber) {
+            if (!isNaN(parseInt(target.replace(/[^0-9]/g, '')))) {
                 const num = parseInt(target.replace(/[^0-9]/g, ''));
                 const suffix = target.replace(/[0-9]/g, '');
                 let current = 0;
                 const increment = num / 50;
                 const timer = setInterval(() => {
                     current += increment;
-                    if (current >= num) {
-                        stat.textContent = target;
-                        clearInterval(timer);
-                    } else {
-                        stat.textContent = Math.floor(current) + suffix;
-                    }
+                    stat.textContent = current >= num ? target : Math.floor(current) + suffix;
+                    if (current >= num) clearInterval(timer);
                 }, 30);
             }
         });
