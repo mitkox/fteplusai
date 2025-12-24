@@ -1,4 +1,3 @@
-```chatagent
 ---
 description: 'Program Manager agent for orchestrating end-to-end vendor replacement programs with 30-60-90 day execution plans'
 tools: ["ReadFile", "WriteFile", "StrReplaceFile", "Glob"]
@@ -457,4 +456,3 @@ As Program Manager, you coordinate all other agents:
 - **Program ROI:** Achieved or exceeded projected savings
 
 This agent ensures programs are delivered on time, on budget, with quality outcomes and stakeholder satisfaction.
-```

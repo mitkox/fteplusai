@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTE+AI - Replace Vendors with AI-Augmented Teams</title>
+    <meta name="description" content="A complete 30-60-90 day program for replacing outsourcing vendors with AI-augmented internal teams. Achieve 60-80% cost reduction and 1.5-2.5x productivity gains.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --bg-primary: #020617;
+            --bg-secondary: #0f172a;
+            --bg-card: rgba(255, 255, 255, 0.02);
+            --bg-card-hover: rgba(255, 255, 255, 0.04);
+            --text-primary: #f8fafc;
+            --text-secondary: #64748b;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(99, 102, 241, 0.2);
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: rgba(99, 102, 241, 0.03);
+            --bg-card-hover: rgba(99, 102, 241, 0.06);
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border-color: rgba(99, 102, 241, 0.1);
+            --border-hover: rgba(99, 102, 241, 0.3);
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(99, 102, 241, 0.03) 0%, transparent 40%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        [data-theme="light"] .bg-animation::before {
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(99, 102, 241, 0.02) 0%, transparent 40%);
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(2%, 2%) rotate(1deg); }
+            50% { transform: translate(-1%, 1%) rotate(-1deg); }
+            75% { transform: translate(1%, -1%) rotate(0.5deg); }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        [data-theme="light"] .grid-overlay {
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        nav.scrolled {
+            padding: 0.75rem 2rem;
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        [data-theme="light"] nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .sun-icon { display: none; }
+        [data-theme="light"] .sun-icon { display: block; }
+        [data-theme="light"] .moon-icon { display: none; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+            max-width: 800px;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .stat {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* Program Phases */
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .phases-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        .phase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .phase-card:hover::before {
+            opacity: 1;
+        }
+
+        .phase-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            opacity: 0.15;
+            position: absolute;
+            top: 0.75rem;
+            right: 1rem;
+            line-height: 1;
+        }
+
+        .phase-days {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50px;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .phase-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .phase-tasks {
+            list-style: none;
+        }
+
+        .phase-tasks li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.875rem;
+        }
+
+        .phase-tasks li:last-child {
+            border-bottom: none;
+        }
+
+        .phase-tasks li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--bg-card);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Agents Section */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 1100px) {
+            .agents-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .agents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .agents-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        .agent-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .agent-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+        }
+
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .agent-avatar {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .agent-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .agent-role {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .agent-card p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .agent-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .agent-tag {
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50px;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        /* Code Section */
+        .code-section {
+            background: var(--bg-card);
+        }
+
+        .code-blocks {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .code-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: var(--bg-card);
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .code-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .code-dots span:nth-child(1) { background: #ff5f57; }
+        .code-dots span:nth-child(2) { background: #ffbd2e; }
+        .code-dots span:nth-child(3) { background: #28c940; }
+
+        .code-title {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
+
+        .code-content {
+            padding: 1.25rem;
+            overflow-x: auto;
+        }
+
+        .code-content pre {
+            font-family: 'Fira Code', 'Monaco', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .code-content .keyword { color: #c792ea; }
+        .code-content .string { color: #c3e88d; }
+        .code-content .comment { color: var(--text-secondary); opacity: 0.7; }
+        .code-content .function { color: #82aaff; }
+        .code-content .variable { color: #f78c6c; }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="logo">
+                    <div class="logo-icon">F+</div>
+                    FTE+AI
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#phases">Program Phases</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#agents">AI Agents</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#quickstart">Quick Start</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                    </svg>
+                    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                </button>
+                <a href="https://github.com/mitkox/fteplusai" target="_blank" class="nav-cta">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Version 4.0.0 - Local AI & Data Sovereignty</div>
+            <h1>Replace Outsourcing Vendors with <span class="gradient">AI-Augmented Teams</span></h1>
+            <p>A complete 30-60-90 day program execution framework with 18 specialized AI agents and 23 reusable skills. Achieve 60-80% cost reduction and 1.5-2.5x productivity gains.</p>
+            <div class="hero-cta">
+                <a href="https://github.com/mitkox/fteplusai" target="_blank" class="btn btn-primary">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+                <a href="#overview" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">18</div>
+                    <div class="stat-label">AI Agents</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">23</div>
+                    <div class="stat-label">Skills</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">60-80%</div>
+                    <div class="stat-label">Cost Reduction</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">90</div>
+                    <div class="stat-label">Day Program</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="overview">
+        <div class="section-header reveal">
+            <div class="section-tag">Overview</div>
+            <h2 class="section-title">What is FTE+AI?</h2>
+            <p class="section-subtitle">A hands-on program management framework for replacing outsourcing vendors with AI-augmented internal teams in just 90 days.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">📋</div>
+                <h4>30-60-90 Day Roadmap</h4>
+                <p>Complete execution plan with phase gates, milestones, and deliverables for each stage of vendor replacement.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🤖</div>
+                <h4>18 Specialized AI Agents</h4>
+                <p>AI-powered agents for program management, ROI analysis, vendor negotiation, compliance, and local AI deployment.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🛠️</div>
+                <h4>23 Reusable Skills</h4>
+                <p>Expertise modules for program planning, financial modeling, risk assessment, change management, and more.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">📊</div>
+                <h4>Financial Modeling</h4>
+                <p>ROI calculators, TCO analysis, and cost comparison tools to justify and validate your vendor replacement decision.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🔒</div>
+                <h4>Data Sovereignty</h4>
+                <p>Complete guidance for self-hosted AI deployment with vLLM, SGLang, and llama.cpp for complete data control.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">⚖️</div>
+                <h4>Risk & Compliance</h4>
+                <p>Security assessments, compliance frameworks (GDPR, HIPAA, SOC2), and vendor security evaluation tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="phases">
+        <div class="section-header reveal">
+            <div class="section-tag">Program Phases</div>
+            <h2 class="section-title">90-Day Execution Roadmap</h2>
+            <p class="section-subtitle">A structured approach to vendor replacement with clear milestones and decision points.</p>
+        </div>
+        <div class="phases-grid">
+            <div class="phase-card reveal">
+                <div class="phase-number">01</div>
+                <div class="phase-days">Days 1-30</div>
+                <h3>Planning & Preparation</h3>
+                <p>Build the business case, select tools, and prepare your team for the transition.</p>
+                <ul class="phase-tasks">
+                    <li>Executive alignment and budget approval</li>
+                    <li>Tool evaluation and selection</li>
+                    <li>Pilot team identification</li>
+                    <li>Risk assessment and mitigation planning</li>
+                    <li>Initial training and setup</li>
+                </ul>
+            </div>
+            <div class="phase-card reveal">
+                <div class="phase-number">02</div>
+                <div class="phase-days">Days 31-60</div>
+                <h3>Pilot & Validation</h3>
+                <p>Prove the AI approach works with real projects in a controlled environment.</p>
+                <ul class="phase-tasks">
+                    <li>Pilot team execution with AI tools</li>
+                    <li>Quality and productivity measurement</li>
+                    <li>Cost validation against benchmarks</li>
+                    <li>Parallel run with vendor</li>
+                    <li>Go/No-Go decision for phase 3</li>
+                </ul>
+            </div>
+            <div class="phase-card reveal">
+                <div class="phase-number">03</div>
+                <div class="phase-days">Days 61-90</div>
+                <h3>Transition & Scale</h3>
+                <p>Full team rollout, vendor cutover, and post-transition optimization.</p>
+                <ul class="phase-tasks">
+                    <li>Team-wide training and deployment</li>
+                    <li>Vendor contract wind-down</li>
+                    <li>Knowledge transfer completion</li>
+                    <li>Full production cutover</li>
+                    <li>Post-transition optimization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header reveal">
+            <div class="section-tag">Enterprise Ready</div>
+            <h2 class="section-title">Complete Program Toolkit</h2>
+            <p class="section-subtitle">Everything you need for successful vendor replacement and AI augmentation.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">📑</div>
+                <h4>Ready-to-Use Templates</h4>
+                <p>Program charters, checklists, tracking tools, and documentation templates ready for customization.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">📈</div>
+                <h4>ROI Validation</h4>
+                <p>Financial models, cost calculators, and productivity metrics to track program success.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🛡️</div>
+                <h4>Risk Mitigation</h4>
+                <p>Rollback planning, parallel runs, and contingency strategies for safe vendor transition.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">💻</div>
+                <h4>Local AI Deployment</h4>
+                <p>Hardware sizing, platform selection, and deployment guides for self-hosted LLMs.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">📝</div>
+                <h4>Legal & Contract Support</h4>
+                <p>Vendor contract review, IP protection strategies, and data processing agreements.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">👥</div>
+                <h4>Change Management</h4>
+                <p>Training programs, adoption tracking, and stakeholder engagement strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="agents">
+        <div class="section-header reveal">
+            <div class="section-tag">AI Agents</div>
+            <h2 class="section-title">18 Specialized Agents</h2>
+            <p class="section-subtitle">AI-powered agents that guide you through every aspect of vendor replacement.</p>
+        </div>
+        <div class="agents-grid">
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">PM</div>
+                    <div>
+                        <div class="agent-name">Program-Manager</div>
+                        <div class="agent-role">Program Orchestrator</div>
+                    </div>
+                </div>
+                <p>Creates comprehensive 30-60-90 day plans, tracks milestones, and coordinates all specialized agents.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#program-planning</span>
+                    <span class="agent-tag">#risk-assessment</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">ES</div>
+                    <div>
+                        <div class="agent-name">Executive-Strategy-Advisor</div>
+                        <div class="agent-role">Strategic Advisor</div>
+                    </div>
+                </div>
+                <p>C-suite guidance for executive summaries, business cases, and long-term AI strategy.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#financial-modeling</span>
+                    <span class="agent-tag">#data-visualization</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">DM</div>
+                    <div>
+                        <div class="agent-name">Documaster</div>
+                        <div class="agent-role">Documentation Agent</div>
+                    </div>
+                </div>
+                <p>Creates program charters, technical guides, and knowledge base content with consistent quality.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#technical-writing</span>
+                    <span class="agent-tag">#document-structure</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">RC</div>
+                    <div>
+                        <div class="agent-name">ROI-Calculator</div>
+                        <div class="agent-role">Financial Analysis</div>
+                    </div>
+                </div>
+                <p>Cost-benefit analyses, TCO calculations, and vendor vs. AI cost comparisons.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#financial-modeling</span>
+                    <span class="agent-tag">#data-visualization</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">TE</div>
+                    <div>
+                        <div class="agent-name">Tool-Evaluation-Specialist</div>
+                        <div class="agent-role">Tool Selection</div>
+                    </div>
+                </div>
+                <p>Objective AI vendor evaluation with comparison matrices, scorecards, and POC frameworks.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#tool-evaluation</span>
+                    <span class="agent-tag">#code-examples</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">SC</div>
+                    <div>
+                        <div class="agent-name">Security-Risk-Compliance</div>
+                        <div class="agent-role">Security & Compliance</div>
+                    </div>
+                </div>
+                <p>Security architecture, risk assessment, and compliance documentation for GDPR, SOC2, HIPAA.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#risk-assessment</span>
+                    <span class="agent-tag">#legal-compliance</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">LC</div>
+                    <div>
+                        <div class="agent-name">Legal-Contract-Advisor</div>
+                        <div class="agent-role">Legal & Contracts</div>
+                    </div>
+                </div>
+                <p>AI vendor contract review, IP protection, data processing agreements, and vendor exit terms.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#legal-compliance</span>
+                    <span class="agent-tag">#vendor-transition</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">IG</div>
+                    <div>
+                        <div class="agent-name">Implementation-Guide</div>
+                        <div class="agent-role">Tutorial Specialist</div>
+                    </div>
+                </div>
+                <p>Step-by-step tutorials for tool onboarding, integrations, and troubleshooting.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#code-examples</span>
+                    <span class="agent-tag">#technical-writing</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">PO</div>
+                    <div>
+                        <div class="agent-name">Performance-Optimization</div>
+                        <div class="agent-role">Performance Specialist</div>
+                    </div>
+                </div>
+                <p>AI tool benchmarking, cost optimization, and monitoring setup for efficiency gains.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#metrics-analytics</span>
+                    <span class="agent-tag">#api-integration</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">CM</div>
+                    <div>
+                        <div class="agent-name">Change-Management-Coach</div>
+                        <div class="agent-role">Adoption Specialist</div>
+                    </div>
+                </div>
+                <p>Training programs, adoption tracking, and resistance management strategies.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#change-management</span>
+                    <span class="agent-tag">#stakeholder-management</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">VT</div>
+                    <div>
+                        <div class="agent-name">Vendor-Transition-Manager</div>
+                        <div class="agent-role">Transition Specialist</div>
+                    </div>
+                </div>
+                <p>Vendor wind-down planning, knowledge transfer frameworks, and cutover procedures.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#vendor-transition</span>
+                    <span class="agent-tag">#change-management</span>
+                </div>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-header">
+                    <div class="agent-avatar">LI</div>
+                    <div>
+                        <div class="agent-name">Local-AI-Infrastructure</div>
+                        <div class="agent-role">Infrastructure Architect</div>
+                    </div>
+                </div>
+                <p>Designs self-hosted LLM platforms with vLLM, SGLang, and llama.cpp for complete data sovereignty.</p>
+                <div class="agent-tags">
+                    <span class="agent-tag">#local-ai-deployment</span>
+                    <span class="agent-tag">#hardware-sizing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header reveal">
+            <div class="section-tag">Expertise Modules</div>
+            <h2 class="section-title">23 Reusable Skills</h2>
+            <p class="section-subtitle">Specialized expertise modules that agents use to execute specific tasks.</p>
+        </div>
+        <div class="skills-wrapper">
+            <div class="skills-container reveal">
+                <div class="skill-tag">#program-planning</div>
+                <div class="skill-tag">#milestone-tracking</div>
+                <div class="skill-tag">#stakeholder-management</div>
+                <div class="skill-tag">#document-structure</div>
+                <div class="skill-tag">#technical-writing</div>
+                <div class="skill-tag">#ai-terminology</div>
+                <div class="skill-tag">#code-examples</div>
+                <div class="skill-tag">#data-visualization</div>
+                <div class="skill-tag">#financial-modeling</div>
+                <div class="skill-tag">#vendor-transition</div>
+                <div class="skill-tag">#risk-assessment</div>
+                <div class="skill-tag">#change-management</div>
+                <div class="skill-tag">#tool-evaluation</div>
+                <div class="skill-tag">#api-integration</div>
+                <div class="skill-tag">#legal-compliance</div>
+                <div class="skill-tag">#metrics-analytics</div>
+                <div class="skill-tag">#production-readiness</div>
+                <div class="skill-tag">#local-ai-deployment</div>
+                <div class="skill-tag">#hardware-sizing</div>
+                <div class="skill-tag">#open-source-licensing</div>
+                <div class="skill-tag">#data-sovereignty</div>
+                <div class="skill-tag">#mlops-operations</div>
+                <div class="skill-tag">#vendor-negotiation</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quickstart" class="code-section">
+        <div class="section-header reveal">
+            <div class="section-tag">Quick Start</div>
+            <h2 class="section-title">Start Your Program</h2>
+            <p class="section-subtitle">Invoke agents to create your vendor replacement program plan.</p>
+        </div>
+        <div class="code-blocks">
+            <div class="code-block reveal">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="code-title">Creating a 30-60-90 Program Plan</span>
+                </div>
+                <div class="code-content">
+                    <pre><span class="comment"># Invoke the Program Manager agent to create your comprehensive plan</span>
+<span class="variable">@Program-Manager</span> <span class="function">Create</span> <span class="string">a 30-60-90 day vendor replacement program plan</span>
+
+<span class="keyword">Context:</span> We currently use [vendor] for [scope]
+<span class="keyword">Constraints:</span> [data policy], [timeline], [no downtime]
+<span class="keyword">Output:</span> Phase 1/2/3 plan + milestones + phase gates + risks + stakeholder map</pre>
+                </div>
+            </div>
+            <div class="code-block reveal">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="code-title">Financial Analysis Example</span>
+                </div>
+                <div class="code-content">
+                    <pre><span class="comment"># Calculate ROI and TCO for vendor replacement</span>
+<span class="variable">@ROI-Calculator</span> <span class="function">Create</span> <span class="string">a cost comparison between our offshore vendor and AI-augmented FTEs</span>
+
+<span class="keyword">Current vendor:</span> 3 developers at $50/hour
+<span class="keyword">Team size:</span> 5 FTEs
+<span class="keyword">Calculate:</span> 3-year ROI, payback period, and TCO</pre>
+                </div>
+            </div>
+            <div class="code-block reveal">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="code-title">Local AI Deployment Example</span>
+                </div>
+                <div class="code-content">
+                    <pre><span class="comment"># Design local AI infrastructure for complete data sovereignty</span>
+<span class="variable">@Local-AI-Infrastructure-Architect</span> <span class="function">Design</span> <span class="string">local AI infrastructure</span>
+
+<span class="keyword">Team size:</span> 30 developers
+<span class="keyword">Requirements:</span> Complete data sovereignty, no external API calls
+<span class="keyword">Constraints:</span> $50K budget, GDPR compliant
+<span class="keyword">Output:</span> Hardware specs, platform selection, deployment architecture</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <h2>Ready to Replace Your Vendors?</h2>
+            <p>Start your 90-day journey to AI-augmented teams and significant cost savings.</p>
+            <a href="https://github.com/mitkox/fteplusai" target="_blank" class="btn btn-primary">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                Get Started on GitHub
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">F+</div>
+                        FTE+AI
+                    </a>
+                    <p>A complete 30-60-90 day program for replacing outsourcing vendors with AI-augmented internal teams.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Program</h4>
+                    <ul>
+                        <li><a href="#phases">Phases</a></li>
+                        <li><a href="#agents">Agents</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#quickstart">Quick Start</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/mitkox/fteplusai" target="_blank">GitHub</a></li>
+                        <li><a href="docs/Introduction.md">Documentation</a></li>
+                        <li><a href="docs/production-readiness/README.md">Enterprise Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://github.com/mitkox/fteplusai" target="_blank">Issues</a></li>
+                        <li><a href="https://github.com/mitkox/fteplusai" target="_blank">Discussions</a></li>
+                        <li><a href="https://github.com/mitkox/fteplusai" target="_blank">Contributing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">&copy; 2025 mitko x. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="https://github.com/mitkox/fteplusai" target="_blank">Privacy</a>
+                    <a href="https://github.com/mitkox/fteplusai" target="_blank">Terms</a>
+                    <a href="https://github.com/mitkox/fteplusai" target="_blank">License</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add stagger effect to grid items
+        document.querySelectorAll('.phases-grid, .features-grid, .agents-grid').forEach(grid => {
+            const items = grid.children;
+            Array.from(items).forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.08}s`;
+            });
+        });
+
+        // Stats counter animation
+        const stats = document.querySelectorAll('.stat-value');
+        stats.forEach(stat => {
+            const target = stat.textContent;
+            const isNumber = !isNaN(parseInt(target.replace(/[^0-9]/g, '')));
+            
+            if (isNumber) {
+                const num = parseInt(target.replace(/[^0-9]/g, ''));
+                const suffix = target.replace(/[0-9]/g, '');
+                let current = 0;
+                const increment = num / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= num) {
+                        stat.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + suffix;
+                    }
+                }, 30);
+            }
+        });
+    </script>
+</body>
+</html>
