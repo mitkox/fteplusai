@@ -1,3 +1,17 @@
+---
+skill: 'hardware-sizing'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'local-ai-infrastructure'
+complexity: 'advanced'
+prerequisite_skills: []
+composable_with:
+  - 'local-ai-deployment'
+  - 'mlops-operations'
+  - 'financial-modeling'
+  - 'production-readiness'
+---
+
 # Hardware Sizing Skill
 
 ## Overview

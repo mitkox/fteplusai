@@ -1,3 +1,17 @@
+---
+skill: 'vendor-negotiation'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'vendor-management'
+complexity: 'advanced'
+prerequisite_skills: []
+composable_with:
+  - 'legal-compliance'
+  - 'financial-modeling'
+  - 'vendor-transition'
+  - 'tool-evaluation'
+---
+
 # Vendor Negotiation Skill
 
 ## Overview

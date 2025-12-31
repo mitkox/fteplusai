@@ -1,3 +1,18 @@
+---
+skill: 'local-ai-deployment'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'local-ai-infrastructure'
+complexity: 'advanced'
+prerequisite_skills:
+  - 'hardware-sizing'
+composable_with:
+  - 'mlops-operations'
+  - 'data-sovereignty'
+  - 'production-readiness'
+  - 'open-source-licensing'
+---
+
 # Local AI Deployment Skill
 
 ## Overview

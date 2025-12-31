@@ -1,4 +1,13 @@
-```markdown
+---
+skill: 'stakeholder-management'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'program-management'
+complexity: 'intermediate'
+prerequisite_skills: ['document-structure', 'technical-writing']
+composable_with: ['change-management', 'program-planning', 'risk-assessment']
+---
+
 # Stakeholder Management Skill
 
 ## Overview
@@ -520,4 +529,10 @@ Response: "No layoffs planned. In fact, we're investing $19K in training to upsk
 - Program continuation: Zero cancellations due to stakeholder issues
 
 This skill ensures stakeholder support is maintained throughout the program, preventing political derailment.
-```
+
+## Related Skills
+
+- **#change-management** - Managing adoption and resistance
+- **#program-planning** - Overall program orchestration
+- **#risk-assessment** - Stakeholder-related risk management
+- **#document-structure** - Stakeholder communications

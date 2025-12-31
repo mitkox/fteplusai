@@ -920,9 +920,39 @@ MIT License. See LICENSE file for details.
 
 ---
 
-**Version:** 4.0.0 (Local AI & Data Sovereignty Release)
-**Last Updated:** December 21, 2025
+**Version:** 4.1.0 (Production-Ready Agent Framework)
+**Last Updated:** December 31, 2025
 **Maintained by:** FTE+AI Project Team
+
+---
+
+## Summary of v4.1.0 Updates
+
+**ENHANCEMENT: Production-Ready Agent Framework with Modern Patterns**
+
+- **All 18 agents upgraded to v2.0.0** with enhanced YAML frontmatter
+- **All 23 skills upgraded to v2.0.0** with standardized metadata
+- **Modern Orchestration Patterns:** Orchestrator-Workers, Hub-and-Spoke, Evaluator-Optimizer, Pipeline, Specialist
+- **Enhanced Agent Metadata:** Version tracking, categories, updated dates
+- **Agent Interaction Models:** Receives From / Provides To tables for clear coordination
+- **Memory and Context Sections:** Explicit context management for each agent
+- **Guardrails:** Quality Gates, Escalation Triggers, Hard Boundaries for all agents
+- **Handoff Protocols:** Standardized agent-to-agent communication
+- **Skill Composability:** Prerequisite skills and composable_with relationships
+
+### Agent Enhancements in v4.1.0
+All agents now include:
+- Orchestration Pattern diagrams
+- Agent Interaction Models (inputs/outputs)
+- Memory and Context management
+- Guardrails (Quality Gates, Escalation Triggers, Hard Boundaries)
+- Handoff Protocols for agent coordination
+
+### Skill Enhancements in v4.1.0
+All skills now include:
+- YAML frontmatter with version, category, complexity
+- Prerequisite skills for learning paths
+- Composable_with relationships for skill composition
 
 ---
 

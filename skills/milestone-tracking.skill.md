@@ -1,4 +1,13 @@
-```markdown
+---
+skill: 'milestone-tracking'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'program-management'
+complexity: 'intermediate'
+prerequisite_skills: ['document-structure', 'program-planning']
+composable_with: ['program-planning', 'stakeholder-management', 'risk-assessment']
+---
+
 # Milestone Tracking Skill
 
 ## Overview
@@ -443,4 +452,10 @@ Milestone 2.1: Pilot Launch
 - Decision speed: <48 hours for unblocking decisions
 
 This skill ensures nothing falls through the cracks and stakeholders always know program status.
-```
+
+## Related Skills
+
+- **#program-planning** - Overall program structure and milestones
+- **#stakeholder-management** - Communicating milestone status
+- **#risk-assessment** - Tracking risks alongside milestones
+- **#document-structure** - Status report formatting

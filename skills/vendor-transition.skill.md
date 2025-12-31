@@ -1,3 +1,18 @@
+---
+skill: 'vendor-transition'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'vendor-management'
+complexity: 'advanced'
+prerequisite_skills:
+  - 'vendor-negotiation'
+composable_with:
+  - 'change-management'
+  - 'program-planning'
+  - 'risk-assessment'
+  - 'legal-compliance'
+---
+
 # Vendor Transition Skill
 
 ## Overview

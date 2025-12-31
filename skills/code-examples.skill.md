@@ -1,3 +1,13 @@
+---
+skill: 'code-examples'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'technical-integration'
+complexity: 'intermediate'
+prerequisite_skills: []
+composable_with: ['api-integration', 'technical-writing', 'document-structure']
+---
+
 # Code Examples Skill
 
 ## Overview

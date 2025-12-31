@@ -1,3 +1,17 @@
+---
+skill: 'metrics-analytics'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'operations'
+complexity: 'intermediate'
+prerequisite_skills: []
+composable_with:
+  - 'financial-modeling'
+  - 'data-visualization'
+  - 'production-readiness'
+  - 'change-management'
+---
+
 # Metrics & Analytics Skill
 
 ## Overview

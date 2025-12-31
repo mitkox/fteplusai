@@ -1,3 +1,17 @@
+---
+skill: 'risk-assessment'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'risk-compliance'
+complexity: 'advanced'
+prerequisite_skills: []
+composable_with:
+  - 'legal-compliance'
+  - 'data-sovereignty'
+  - 'production-readiness'
+  - 'vendor-transition'
+---
+
 # Risk Assessment Skill
 
 ## Overview

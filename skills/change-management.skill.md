@@ -1,3 +1,13 @@
+---
+skill: 'change-management'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'organizational'
+complexity: 'intermediate'
+prerequisite_skills: ['stakeholder-management']
+composable_with: ['stakeholder-management', 'document-structure', 'technical-writing']
+---
+
 # Change Management Skill
 
 ## Overview
