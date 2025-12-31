@@ -1,3 +1,17 @@
+---
+skill: 'legal-compliance'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'risk-compliance'
+complexity: 'advanced'
+prerequisite_skills: []
+composable_with:
+  - 'risk-assessment'
+  - 'data-sovereignty'
+  - 'vendor-negotiation'
+  - 'open-source-licensing'
+---
+
 # Legal Compliance Skill
 
 ## Overview

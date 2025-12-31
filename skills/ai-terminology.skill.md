@@ -1,3 +1,13 @@
+---
+skill: 'ai-terminology'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'documentation'
+complexity: 'foundational'
+prerequisite_skills: []
+composable_with: ['technical-writing', 'document-structure']
+---
+
 # AI Terminology Skill
 
 ## Overview

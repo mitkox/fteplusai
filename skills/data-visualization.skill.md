@@ -1,3 +1,17 @@
+---
+skill: 'data-visualization'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'documentation'
+complexity: 'intermediate'
+prerequisite_skills: []
+composable_with:
+  - 'financial-modeling'
+  - 'metrics-analytics'
+  - 'document-structure'
+  - 'technical-writing'
+---
+
 # Data Visualization Skill
 
 ## Overview

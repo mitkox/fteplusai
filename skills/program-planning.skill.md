@@ -1,4 +1,17 @@
-```markdown
+---
+skill: 'program-planning'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'organizational'
+complexity: 'advanced'
+prerequisite_skills: []
+composable_with:
+  - 'milestone-tracking'
+  - 'stakeholder-management'
+  - 'risk-assessment'
+  - 'change-management'
+---
+
 # Program Planning Skill
 
 ## Overview
@@ -467,4 +480,3 @@ Non-critical tasks (e.g., documentation, case study) have slack.
 - ROI: Positive in Year 1
 
 This skill ensures programs are properly planned, resourced, and governed for maximum success probability.
-```

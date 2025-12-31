@@ -1,3 +1,18 @@
+---
+skill: 'mlops-operations'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'operations'
+complexity: 'advanced'
+prerequisite_skills:
+  - 'local-ai-deployment'
+  - 'hardware-sizing'
+composable_with:
+  - 'production-readiness'
+  - 'metrics-analytics'
+  - 'data-sovereignty'
+---
+
 # MLOps Operations Skill
 
 ## Overview

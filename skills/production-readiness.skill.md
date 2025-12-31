@@ -1,3 +1,18 @@
+---
+skill: 'production-readiness'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'operations'
+complexity: 'advanced'
+prerequisite_skills:
+  - 'risk-assessment'
+composable_with:
+  - 'mlops-operations'
+  - 'change-management'
+  - 'metrics-analytics'
+  - 'local-ai-deployment'
+---
+
 # Production Readiness Skill
 
 ## Overview

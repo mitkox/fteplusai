@@ -17,7 +17,7 @@ The FTE+AI Program Framework is a comprehensive 30-60-90 day program execution s
 **Version Control:** Git-based with GitHub repository structure  
 **Tools Framework:** Configurable tool access for program management  
 **Execution Model:** 30-60-90 day phased program delivery  
-**Current Version:** 3.0.0 (Program Execution Framework)
+**Current Version:** 4.1.0 (Production-Ready Agent Framework)
 
 ### Core Architecture Components
 
@@ -27,6 +27,32 @@ The FTE+AI Program Framework is a comprehensive 30-60-90 day program execution s
 4. **Phase Gates**: Go/No-Go decision points at Days 30, 60, 90
 5. **Tracking System**: Milestone, deliverable, risk, and stakeholder management
 6. **Reference Layer** (root files): Program guides and execution templates
+
+### Modern Agent Patterns (v4.1)
+
+This framework implements cutting-edge agent architecture patterns based on 2024-2025 best practices:
+
+| Pattern | Description | Used By |
+|---------|-------------|---------|
+| **Orchestrator-Workers** | Central coordinator delegates to specialists | Program-Manager |
+| **Hub-and-Spoke** | Central hub synthesizes from multiple sources | Documaster |
+| **Evaluator-Optimizer** | Generate-critique-improve loops | Tool-Evaluation-Specialist |
+| **Pipeline** | Sequential processing through specialists | Implementation-Guide |
+| **Specialist** | Deep expertise in narrow domain | ROI-Calculator, MLOps-Engineer |
+
+### Agent Metadata Standard (v2.0)
+
+All agents now include enhanced YAML frontmatter:
+
+```yaml
+---
+description: 'Agent purpose description'
+tools: ["Tool1", "Tool2"]
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'orchestration|documentation|financial|etc'
+---
+```
 
 ## 🛠️ Tools Configuration
 
@@ -873,8 +899,8 @@ Before scaling AI vendor replacement:
 
 ---
 
-**System Version:** 4.0.0 (Local AI & Data Sovereignty Release)
-**Last Updated:** December 21, 2025
+**System Version:** 4.1.0 (Production-Ready Agent Framework)
+**Last Updated:** December 31, 2025
 **Maintained by:** FTE+AI Project Team
 
 ## 📄 License

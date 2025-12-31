@@ -1,3 +1,13 @@
+---
+skill: 'api-integration'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'technical-integration'
+complexity: 'advanced'
+prerequisite_skills: ['code-examples']
+composable_with: ['code-examples', 'technical-writing', 'production-readiness']
+---
+
 # API Integration Skill
 
 ## Overview

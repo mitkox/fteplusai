@@ -1,3 +1,17 @@
+---
+skill: 'open-source-licensing'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'risk-compliance'
+complexity: 'intermediate'
+prerequisite_skills: []
+composable_with:
+  - 'legal-compliance'
+  - 'tool-evaluation'
+  - 'risk-assessment'
+  - 'local-ai-deployment'
+---
+
 # Open Source Licensing Skill
 
 ## Overview

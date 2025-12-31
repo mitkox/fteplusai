@@ -1,3 +1,18 @@
+---
+skill: 'data-sovereignty'
+version: '2.0.0'
+updated: '2025-12-31'
+category: 'risk-compliance'
+complexity: 'advanced'
+prerequisite_skills:
+  - 'risk-assessment'
+  - 'legal-compliance'
+composable_with:
+  - 'local-ai-deployment'
+  - 'mlops-operations'
+  - 'production-readiness'
+---
+
 # Data Sovereignty Skill
 
 ## Overview
